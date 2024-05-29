@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+#backgroundModalDetalhamentoVendido {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed; 
+    top: 0; 
+    right: 0; 
+    width: 100vw;
+    height: 100vh; 
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 9999; /* Garante que o modal esteja acima de tudo */
+}
+
+#boxModalDetalhamentoVendido {
+    position: relative;
+    display: flex;
+    padding: 20px;
+    width: 1000px;
+    flex-direction: column;
+    background-color: var(--secundary-light);
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    min-height: 500px;
+}
+
+#closeButton {
+    background-color: rgb(140, 0, 0);
+    color: white;
+    height: 30px;
+    width: 30px;
+    border-radius: 15px;
+    position: absolute; 
+    top: -10px; 
+    right: -10px; 
+    box-shadow: black 0px 0px 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#detalhamentoVendido {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#generalInfoVendido {
+    display: flex;
+    gap: 20px;
+}
+
+#generalInfoVendido > section {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#generalInfoVendido > section:last-child > div:last-child {
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--primary-light);
+    border-radius: 20px 20px 0 0;
+    color: var(--primary-dark);
+}
+
+#pagamentosButtonVendido {
+    width: 50%;
+    text-align: center;
+    border-radius: 20px 20px 0 0;
+    border: 0px;
+    background-color: var(--primary-light);
+    padding: 15px;
+}
+
+#comprasButtonVendido {
+    background-color: var(--primary-dark);
+    color: var(--primary-light);
+    width: 50%;
+    text-align: center;
+    border-radius: 20px 20px 0 0;
+    box-shadow: black 0px 0px 10px -5px;
+    border: 0px;
+    padding: 15px;
+}
+
+#pacienteInfoVendido {
+    padding: 30px 30px;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 20px;
+    box-shadow: black 0px 0px 10px -5px;
+    margin-bottom: 20px;
+}
+
+#moneyInfoVendido {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: center;
+}
+
+#moneyInfoVendido > div {
+    background-color: var(--primary-light);
+    height: 100px;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 10px;
+    box-shadow: black 0px 0px 3px 0px;
+}
+
+#comprasVendido , 
+#pagamentosVendido {
+    width: 100%; /* Largura máxima do container */
+    height: 260px; /* Altura máxima do container */
+    overflow-y: auto; /* Adiciona scroll vertical quando a tabela excede a altura */
+    position: relative; /* Necessário para o posicionamento absoluto do thead */
+    border: 1px solid var(--primary-dark);
+    background-color: white;
+    box-shadow: black 0px 0px 10px -5px;
+}
+
+table {
+    width: 100%;
+    table-layout: auto; /* Define a largura das colunas com base no conteúdo */
+    border-collapse: collapse; /* Colapsa as bordas das células */
+}
+
+th, td {
+    padding: 10px 5px;
+    text-align: center;
+}
+
+thead {
+    position: sticky; /* Torna o cabeçalho fixo */
+    top: 0; /* Coloca o cabeçalho no topo */
+    background-color: var(--secundary-light); /* Cor de fundo para cobrir a rolagem */
+    z-index: 1; /* Garante que o cabeçalho esteja acima do conteúdo rolado */
+    background-color: var(--primary-dark);
+    color: white;
+}
+
+tbody {
+    max-height: 150px; /* Altura máxima da tabela */
+    overflow-y: auto; /* Adiciona scroll vertical quando o conteúdo excede a altura */
+}

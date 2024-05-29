@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/pages/recepcao/style/vendedores.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendedores</title>
+</head>
+<body>
+    <header>
+        <a href="/">
+            <img id="logo" src="/assets/images/LogomarcaBranca.png" alt="Logo-ccp">
+        </a>
+        <nav>
+            <ul id="desktopNav">
+                <li><a href="/clientes">Clientes</a></li>
+                <li><a href="/vendas">Vendas</a></li>
+                <li>
+                    <div class="usuarioLogado">
+                        <p class="nomeLogado"></p>
+                        <button id="logout" onclick="logout()"><img src="/assets/images/logout-icon.svg" alt=""></button>
+                    </div>
+                </li>
+                <li>
+                    <div class="admin" id="settingsDiv">
+                        <img id="settingsIcon" src="/assets/images/settings.png" alt="settingsIcon">
+                        <div id="settingsOptions">
+                            <div><a href="/produtos">Produtos</a></div>
+                            <div><a href="/vendedores">Vendedores</a></div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <img onclick="openMenuMobile()" id="menuIcon" src="/assets/images/menu.svg" alt="menu-icon">
+            <div id="mobileNav">
+                <ul id="mobileLista">
+                    <div>
+                        <li><a href="/clientes">Clientes</a></li>
+                        <li><a href="/vendas">Vendas</a></li>
+                        <li><a class="admin" href="/produtos">Produtos</a></li>
+                        <li><a class="admin" href="/vendedores">Vendedores</a></li>
+                    </div>
+                    <div class="usuarioLogado">
+                        <p class="nomeLogado"></p>
+                        <button id="logout" onclick="logout()"><img src="/assets/images/logout-icon.svg" alt=""></button>
+                    </div>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="pageTitle">
+            <h1>Vendedores</h1>
+        </section>
+        <section id="sideFormModal">
+            <form id="SideForm">
+                <div id="inputsSideForm">
+                    <!-- Preenchido via JS -->
+                </div>
+                <div id="buttonsSideForm">
+                    <a onclick="cancelSideFormModal()">Cancelar</a>
+                    <a id="buttonSubmitForm" onclick="novoVendedor()">Enviar</a>
+                </div>
+            </form>
+        </section>
+        <section id="vendedorList">
+            <ul id="vendedores-list">
+                <!-- Preenchido via JS -->
+            </ul>
+        </section>
+    </main>
+    <button class="addButton" onclick="openSideFormModal()">+</button>
+    <script src="/pages/recepcao/scripts/general.js"></script>
+    <script src="/pages/recepcao/scripts/vendedores.js"></script>
+</body>
+</html>

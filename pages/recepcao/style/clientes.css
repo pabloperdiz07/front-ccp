@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import "general.css";
+@import "side_form_modal.css";
+
+#search_clientes {
+    padding: 8px 10px;
+    width: 300px;
+    border-radius: 5px;
+    border: var(--primary-dark) 1px solid;
+    background-color: white;
+}
+
+#clientList > ul > li > a > div {
+    padding: 10px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 10px 5px 10px;
+    color: black;
+    box-shadow: black 0px 0px 6px -2px;
+    transition: transform 500ms;
+}
+
+#clientList > ul > li > a > div:hover {
+    transform: scale(1.02);
+}
+
+#clientList {
+    margin-bottom: 30px;
+}

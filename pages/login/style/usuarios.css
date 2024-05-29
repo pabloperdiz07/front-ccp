@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import "/pages/recepcao/style/general.css";
+@import "/pages/recepcao/style/side_form_modal.css";
+
+main {
+    padding: 0 2%;
+}
+
+#usuarios-list > ul > li > a > div {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 10px 5px 10px;
+    color: black;
+    background-color: white;
+    box-shadow: black 0px 0px 6px -2px;
+    transition: transform 500ms;
+}
+
+#usuarios-list > ul > li > a > div:hover {
+    transform: scale(1.02);
+}
+
+#usuarios-list > ul {
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    background-color: var(--secundary-color);
+}
+
+#usuarios-list > ul > div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+#usuarios-list > ul > div > button {
+    padding: 5px;
+    border-radius: 5px;
+    background-color: var(--primary-light);
+    color: var(--primary-dark);
+    border: none;
+    box-shadow: var(--primary-dark) 0px 0px 4px ;
+}
+
+.checkboxes {
+    margin-top: 10px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid grey;
+    display: flex;
+    flex-direction: column;
+}
+
+.cidades , .setores {
+    padding: 10px;
+}
+
+.cidades > input , .setores > input {
+    transform: scale(1.6); /* Aumenta o tamanho do checkbox */
+    margin-right: 10px;
+}
+
+.checkboxes > h3 {
+    margin-bottom: 10px;
+}

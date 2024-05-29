@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import "general.css";
+@import "side_form_modal.css";
+
+#detalhamento-paciente{
+    display: flex;
+    flex-direction: column;
+}
+
+#detalhamento-paciente > ul > li > a > div {
+    padding: 10px;
+    border: 1px solid rgb(214, 214, 214);
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
+    color: black;
+}
+
+#perfilPacienteBox {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 0 20px;
+    flex-wrap: wrap;
+}
+
+.perfilPaciente {
+    padding: 20px;
+    background-color: white;
+    border-radius: 20px;
+    width: calc(50% - 20px); /* Adjust for margin/gap */
+    box-shadow: 0px 0px 10px -5px black;
+    display: flex;
+    justify-content: space-between;
+    min-width: 200px;
+    min-height: 150px;
+}
+
+@media only screen and (max-width: 1000px) {
+    .perfilPaciente {
+        width: 100%;
+    }
+}
+
+.perfilPaciente > a > img{
+    width: 20px;
+}
+
+.perfilPaciente > a > img:hover{
+    transform: scale(1.2);
+    transition: 500ms;
+}
+
+.perfilPaciente  p{
+    margin-bottom: 10px;
+}
+
+h2 {
+    margin: 20px 0 10px 20px;
+}
+
+h3 {
+    margin-bottom: 10px;
+}
+
+#vendasPaciente {
+    display:flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 10px 0 20px 0;
+}
+
+#vendasPaciente > a {
+    display: flex;
+    margin: 0 10px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 3px;
+    transition: transform 500ms;
+}
+
+#vendasPaciente > a:hover {
+    transform: scale(1.02);
+}
+
+#vendasPaciente > a > li {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 16px;
+    box-shadow: black 0px 0px 6px -2px;
+}
+
+#vendasPaciente > a > li > div {
+    margin: 0;
+    color: black;
+    height: 60px;
+    border-radius: 5px 16px 16px 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#vendasPaciente > a > li > div:first-child {
+    width: 8px;
+}
+
+#vendasPaciente > a > li > div:last-child {
+    width: 100%;
+    background-color: white;
+    padding: 10px;
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/pages/recepcao/style/vendas.css">
+    <link rel="stylesheet" href="/pages/recepcao/style/vendido_modal.css">
+</head>
+<body>
+    <header>
+        <a href="/">
+            <img id="logo" src="/assets/images/LogomarcaBranca.png" alt="Logo-ccp">
+        </a>
+        <nav>
+            <ul id="desktopNav">
+                <li><a href="/clientes">Clientes</a></li>
+                <li><a href="/vendas">Vendas</a></li>
+                <li>
+                    <div class="usuarioLogado">
+                        <p class="nomeLogado"></p>
+                        <button id="logout" onclick="logout()"><img src="/assets/images/logout-icon.svg" alt=""></button>
+                    </div>
+                </li>
+                <li>
+                    <div class="admin" id="settingsDiv">
+                        <img id="settingsIcon" src="/assets/images/settings.png" alt="settingsIcon">
+                        <div id="settingsOptions">
+                            <div><a href="/produtos">Produtos</a></div>
+                            <div><a href="/vendedores">Vendedores</a></div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <img onclick="openMenuMobile()" id="menuIcon" src="/assets/images/menu.svg" alt="menu-icon">
+            <div id="mobileNav">
+                <ul id="mobileLista">
+                    <div>
+                        <li><a href="/clientes">Clientes</a></li>
+                        <li><a href="/vendas">Vendas</a></li>
+                        <li><a class="admin" href="/produtos">Produtos</a></li>
+                        <li><a class="admin" href="/vendedores">Vendedores</a></li>
+                    </div>
+                    <div class="usuarioLogado">
+                        <p class="nomeLogado"></p>
+                        <button id="logout" onclick="logout()"><img src="/assets/images/logout-icon.svg" alt=""></button>
+                    </div>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="pageTitle">
+            <h1>Vendas</h1>
+            <div>
+                <input onchange="dataInicialMudou(value)" id="dataInicial" type="date">
+            </div>
+        </section>
+        <section id="vendasList">
+            <ul id="listaVendas">
+            </ul>
+            <button id="buttonVerMais" onclick="verMaisVendas()">Ver mais</button>
+        </section>
+    </main>
+    <div id="backgroundModalDetalhamentoVendido" style="display: none;">
+        <div id="boxModalDetalhamentoVendido">
+            <h3 id="carregamentoModalVendido">Carregando...</h3>
+            <div id="closeButton">
+                <a onclick="closeModalVendido()">x</a>
+            </div>
+            <div id="detalhamentoVendido" style="display: none;">
+                <div id="generalInfoVendido">
+                    <section id="pacienteInfoVendido">
+                        <p><strong>Data da venda: </strong><span id="dataVendido"></span></p>
+                        <p><strong>Paciente: </strong><span id="pacienteVendido"></span></p>
+                        <p><strong>Empresa: </strong><span id="empresaVendido"></span></p>
+                        <p><strong>Vendido em: </strong><span id="cidadeVendido"></span></p>
+                    </section>
+                    <section>
+                        <div id="moneyInfoVendido">
+                            <div>
+                                <p>Bruto:</p>
+                                <p>R$ <span id="valorBrutoVendido">0.00</span></p>
+                            </div>
+                            <div>
+                                <p>Desconto:</p>
+                                <p>R$ <span id="valorDescontoVendido">0.00</span></p>
+                            </div>
+                            <div>
+                                <p>líquido:</p>
+                                <p>R$ <span id="valorLiquidoVendido">0.00</span></p>
+                            </div>
+                            <div>
+                                <p>Pago:</p>
+                                <p>R$ <span id="totalPagoVendido">0.00</span></p>
+                            </div>
+                        </div>
+                        <div>
+                            <button id="pagamentosButtonVendido" onclick="openPagamentos()">Pagamentos</button>
+                            <button id="comprasButtonVendido" onclick="openCompras()">Compras</button>
+                        </div>
+                    </section>
+                </div>
+                <section id="comprasVendido">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>PRODUTO</th>
+                                <th>QUANTIDADE</th>
+                                <th>DESCONTO</th>
+                                <th>TOTAL</th>
+                                <th>VENDEDOR</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbComprasVendido">
+                        </tbody>
+                    </table>
+                </section>
+                <section id="pagamentosVendido" style="display: none;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>FORMA</th>
+                                <th>PARCELAMENTO</th>
+                                <th>PAGO</th>
+                                <th>COMPROVANTE</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbPagamentosVendido">
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+        </div>
+    </div>
+    <script src="/pages/recepcao/scripts/general.js"></script>
+    <script src="/pages/recepcao/scripts/vendas.js"></script>
+    <script src="/pages/recepcao/scripts/vendido_modal.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/pages/login/style/setores.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setores</title>
+</head>
+<body>
+    <header>
+        <img id="logo" src="/assets/images/LogomarcaBranca.png" alt="Logo-ccp">
+        <nav>
+            <ul id="desktopNav">
+                <li>
+                    <div class="usuarioLogado">
+                        <p class="nomeLogado"></p>
+                        <button id="logout" onclick="logout()"><img src="/assets/images/logout-icon.svg" alt=""></button>
+                    </div>
+                </li>
+                <li>
+                    <div class="admin" id="settingsDiv">
+                        <img id="settingsIcon" src="/assets/images/settings.png" alt="settingsIcon">
+                        <div id="settingsOptions">
+                            <div><a href="/usuarios">Usuários</a></div>
+                        </div>
+                    </div>
+                </li>
+            </ul>            
+            <img onclick="openMenuMobile()" id="menuIcon" src="/assets/images/menu.svg" alt="menu-icon">
+            <div id="mobileNav">
+                <ul id="mobileLista">
+                    <div>
+                        <li class="admin"><a href="/usuarios">Usuários</a></li>
+                    </div>
+                    <div class="usuarioLogado">
+                        <p class="nomeLogado"></p>
+                        <button id="logout" onclick="logout()"><img src="/assets/images/logout-icon.svg" alt=""></button>
+                    </div>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <a href="/clientes">
+            <div class="setores" id="recepcao">
+                <h2>Recepção</h2>
+            </div>
+        </a>
+        <a href="/consultas">
+            <div class="setores" id="comercial">
+                <h2>Comercial</h2>
+            </div>
+        </a>
+    </main>
+    <script src="pages/recepcao/scripts/general.js"></script>
+    <script src="/pages/login/scripts/setores.js"></script>
+</body>
+</html>

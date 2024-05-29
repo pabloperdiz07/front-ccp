@@ -1,0 +1,74 @@
+#sideFormModal {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    justify-content: end;
+    align-items: end;
+    position: fixed; 
+    top: 0; 
+    right: 0; 
+    width: 100vw;
+    height: 100vh; 
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+
+#SideForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: var(--secundary-light);
+    padding: 2%;
+    height: calc(100vh - 40px);
+    overflow: scroll;
+    position: fixed; 
+    top: 0; 
+    right: 0;
+    width: 50vw;
+    height: 100vh;
+    max-width: 600px;
+    min-width: 360px;
+}
+
+#inputsSideForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#inputsSideForm label {
+    margin-top: 10px;
+    margin-bottom: -5px;
+}
+
+#inputsSideForm > input , #inputsSideForm > select , #inputsSideForm > textarea {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid gray;
+}
+
+#buttonsSideForm {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+form > div > button{
+    width: 100%;
+}
+
+form > div > a{
+    display: flex;
+    width: 100%;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(106, 106, 106);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+form > div > button{
+    border: 1px grey solid;
+    border-radius: 5px;
+}

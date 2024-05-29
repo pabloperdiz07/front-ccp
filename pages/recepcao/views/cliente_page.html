@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/pages/recepcao/style/cliente_page.css">
+    <link rel="stylesheet" href="/pages/recepcao/style/vendas_modal.css">
+    <link rel="stylesheet" href="/pages/recepcao/style/vendido_modal.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhamento paciente</title>
+</head>
+<body>
+    <header>
+        <a href="/">
+            <img id="logo" src="/assets/images/LogomarcaBranca.png" alt="Logo-ccp">
+        </a>
+        <nav>
+            <ul id="desktopNav">
+                <li><a href="/clientes">Clientes</a></li>
+                <li><a href="/vendas">Vendas</a></li>
+                <li>
+                    <div class="usuarioLogado">
+                        <p class="nomeLogado"></p>
+                        <button id="logout" onclick="logout()"><img src="/assets/images/logout-icon.svg" alt=""></button>
+                    </div>
+                </li>
+                <li>
+                    <div class="admin" id="settingsDiv">
+                        <img id="settingsIcon" src="/assets/images/settings.png" alt="settingsIcon">
+                        <div id="settingsOptions">
+                            <div><a href="/produtos">Produtos</a></div>
+                            <div><a href="/vendedores">Vendedores</a></div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <img onclick="openMenuMobile()" id="menuIcon" src="/assets/images/menu.svg" alt="menu-icon">
+            <div id="mobileNav">
+                <ul id="mobileLista">
+                    <div>
+                        <li><a href="/clientes">Clientes</a></li>
+                        <li><a href="/vendas">Vendas</a></li>
+                        <li><a class="admin" href="/produtos">Produtos</a></li>
+                        <li><a class="admin" href="/vendedores">Vendedores</a></li>
+                    </div>
+                    <div class="usuarioLogado">
+                        <p class="nomeLogado"></p>
+                        <button id="logout" onclick="logout()"><img src="/assets/images/logout-icon.svg" alt=""></button>
+                    </div>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main >
+        <section id="pageTitle">
+            <h1>Página do paciente</h1>
+        </section>
+        <section id="detalhamento-paciente">
+            <div id="perfilPacienteBox">
+                <div class="perfilPaciente">
+                    <div id="paciente-info">
+                        <!-- Preenchendo via JS -->
+                    </div>
+                    <a onclick="openSideFormModal()">
+                        <img src="/assets/images/edit.png" alt="editIcon">
+                    </a>
+                </div>
+                <div class="perfilPaciente">
+                    <div>
+                        <h3>Observação: </h3>
+                        <p id="observacao"><!-- Preenchendo via JS --></p>
+                    </div>
+                    <a onclick="openSideFormModal()">
+                        <img src="/assets/images/edit.png" alt="editIcon">
+                    </a>
+                </div>
+            </div>
+            <h2>Histórico de compras</h2>
+            <ul id="vendasPaciente">
+                <!-- Preenchendo via JS -->
+            </ul>
+        </section>
+    </main>
+    <div id="vendasModalBox">
+        <div id="vendasModal">
+            <section id="topOfModal">
+                <div>
+                    <section id="navInterno">
+                        <ul>
+                            <li>
+                                <button id="buttonVendas" onclick="openVendasForm()">
+                                    Vendas
+                                </button>
+                            </li>
+                            <li>
+                                <button id="buttonPagamentos" onclick="openPagamentosForm()">
+                                    Pagamentos
+                                </button>
+                            </li>
+                        </ul>
+                    </section>
+                    <div id="salesInfo" class="sales">
+                        <div>
+                            <label for="vendedor">Vendedor</label>
+                            <select id="vendedor" name="vendedor">
+                                <option value="Clínica" disabled selected>Selecione um vendedor</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="Produto">Produto</label>
+                            <select id="produto" name="produto" onchange="calcularTotalProduto()">
+                                <option value="0" disabled selected>Selecione um produto</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="quantidade">Quantidade</label>
+                            <input id="quantidade" type="number" min="1" value="1" onchange="calcularTotalProduto()">
+                        </div>
+                        <div>
+                            <label for="desconto">Desconto</label>
+                            <input id="desconto" type="number" min="0" value="0" onchange="calcularTotalProduto()">
+                        </div>
+                        <div>
+                            <p>Total: R$ <span id="valorParcial">0.00</span></p>
+                            <button onclick="lancarCarrinho()">Add carrinho</button>
+                        </div>
+                    </div>
+                    <div id="pagamentosInfo" class="pagamentos">
+                        <div>
+                            <label for="formaPagamento">Forma</label>
+                            <select id="formaPagamento" name="formaPagamento">
+                                <option value="" disabled selected>Selecione a forma de pagamento</option>
+                                <option value="PIX">PIX</option>
+                                <option value="Transferência">Transferência</option>
+                                <option value="Dinheiro">Dinheiro</option>
+                                <option value="Cartão de crédito">Cartão de crédito</option>
+                                <option value="Cartão de débito">Cartão de débito</option>
+                                <option value="Link de pagamento">Link de pagamento</option>
+                                <option value="Boleto">Boleto</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="parcelamento">Parcelamento</label>
+                            <select id="parcelamento" name="parcelamento">
+                                <option value="" disabled selected>Selecione o parcelamento</option>
+                                <option value="À vista">À vista</option>
+                                <option value="1 parcela">1 parcela</option>
+                                <option value="2 parcelas">2 parcelas</option>
+                                <option value="3 parcelas">3 parcelas</option>
+                                <option value="4 parcelas">4 parcelas</option>
+                                <option value="5 parcelas">5 parcelas</option>
+                                <option value="6 parcelas">6 parcelas</option>
+                                <option value="7 parcelas">7 parcelas</option>
+                                <option value="8 parcelas">8 parcelas</option>
+                                <option value="9 parcelas">9 parcelas</option>
+                                <option value="10 parcelas">10 parcelas</option>
+                                <option value="11 parcelas">11 parcelas</option>
+                                <option value="12 parcelas">12 parcelas</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="valorPago">Valor pago</label>
+                            <input id="valorPago" type="text">
+                        </div>
+                        <div>
+                            <label for="comrovante">Comprovante</label>
+                            <input id="comrovante" type="file">
+                        </div>
+                        <div>
+                            <button onclick="lancarPagamento()">Add pagamento</button>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div id="generalInfo">
+                        <div >
+                            <label for="dataVenda">Data da venda</label>
+                            <input id="dataVenda" type="date">
+                        </div>
+                        <div >
+                            <label for="paciente">Paciente</label>
+                            <input class="paciente" type="text" disabled>
+                        </div>
+                        <div >
+                            <label for="empresa">Empresa</label>
+                            <select id="empresa" name="empresa" onchange="empresaEscolhida()">
+                                <option value="CPO">CPO</option>
+                                <option value="WAL">WAL</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="moneyInfo">
+                        <div>
+                            <p>Bruto:</p>
+                            <p>R$ <span id="valorBruto">0.00</span></p>
+                        </div>
+                        <div>
+                            <p>Desconto:</p>
+                            <p>R$ <span id="valorDesconto">0.00</span></p>
+                        </div>
+                        <div>
+                            <p>líquido:</p>
+                            <p>R$ <span id="valorLiquido">0.00</span></p>
+                        </div>
+                        <div>
+                            <p>Pago:</p>
+                            <p>R$ <span id="totalPago">0.00</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="shoppingCart" class="sales">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="display:none;">ID_PRODUTO</th>
+                            <th>PRODUTO</th>
+                            <th>QUANTIDADE</th>
+                            <th>DESCONTO</th>
+                            <th>TOTAL</th>
+                            <th>VENDEDOR</th>
+                            <th style="display:none;">ID_VENDEDOR</th>
+                            <th>AÇÃO</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </section>
+            <section id="pagamentos" class="pagamentos">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>FORMA</th>
+                            <th>PARCELAMENTO</th>
+                            <th>PAGO</th>
+                            <th>COMPROVANTE</th>
+                            <th>AÇÃO</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </section>
+            <section id="bottomOfModal">
+                <div>
+                    <label for="vendidoEm">Vendido em:</label>
+                    <select name="vendidoEm" id="vendidoEm">
+                        <option style="display: none;" id="salvador" value="Salvador">Salvador</option>
+                        <option style="display: none;" id="aracaju" value="Aracaju">Aracaju</option>
+                    </select>
+                </div>
+                <div id="actionButtons">
+                    <button onclick="closeVendaProdutoModal()">cancelar</button>
+                    <button id="enviarVenda" disabled onclick="enviarVenda()">enviar</button>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div id="backgroundModalDetalhamentoVendido" style="display: none;">
+        <div id="boxModalDetalhamentoVendido">
+            <h3 id="carregamentoModalVendido">Carregando...</h3>
+            <div id="closeButton">
+                <a onclick="closeModalVendido()">x</a>
+            </div>
+            <div id="detalhamentoVendido" style="display: none;">
+                <div id="generalInfoVendido">
+                    <section id="pacienteInfoVendido">
+                        <p><strong>Data da venda: </strong><span id="dataVendido"></span></p>
+                        <p><strong>Paciente: </strong><span id="pacienteVendido"></span></p>
+                        <p><strong>Empresa: </strong><span id="empresaVendido"></span></p>
+                        <p><strong>Vendido em: </strong><span id="cidadeVendido"></span></p>
+                    </section>
+                    <section>
+                        <div id="moneyInfoVendido">
+                            <div>
+                                <p>Bruto:</p>
+                                <p>R$ <span id="valorBrutoVendido">0.00</span></p>
+                            </div>
+                            <div>
+                                <p>Desconto:</p>
+                                <p>R$ <span id="valorDescontoVendido">0.00</span></p>
+                            </div>
+                            <div>
+                                <p>líquido:</p>
+                                <p>R$ <span id="valorLiquidoVendido">0.00</span></p>
+                            </div>
+                            <div>
+                                <p>Pago:</p>
+                                <p>R$ <span id="totalPagoVendido">0.00</span></p>
+                            </div>
+                        </div>
+                        <div>
+                            <button id="pagamentosButtonVendido" onclick="openPagamentos()">Pagamentos</button>
+                            <button id="comprasButtonVendido" onclick="openCompras()">Compras</button>
+                        </div>
+                    </section>
+                </div>
+                <section id="comprasVendido">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>PRODUTO</th>
+                                <th>QUANTIDADE</th>
+                                <th>DESCONTO</th>
+                                <th>TOTAL</th>
+                                <th>VENDEDOR</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbComprasVendido">
+                        </tbody>
+                    </table>
+                </section>
+                <section id="pagamentosVendido" style="display: none;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>FORMA</th>
+                                <th>PARCELAMENTO</th>
+                                <th>PAGO</th>
+                                <th>COMPROVANTE</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbPagamentosVendido">
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+        </div>
+    </div>
+    <!-- Formulário de cadastro de clientes -->
+    <section id="sideFormModal">
+        <form action="/api/cadastro/cliente" id="SideForm">
+            <div id="inputsSideForm">
+                <label for="CPF">CPF</label>
+                <input name="CPF" id="CPF">
+                <label for="NOME">Nome</label>
+                <input name="NOME" id="NOME">
+                <label for="CIDADE_DE_ATENDIMENTO">Cidade de atendimento</label>
+                <select name="CIDADE_DE_ATENDIMENTO" id="CIDADE_DE_ATENDIMENTO">
+                    <option value="" disabled selected>Selecione uma cidade</option>
+                    <option id="salvador" value="Salvador">Salvador</option>
+                    <option id="aracaju" value="Aracaju">Aracaju</option>
+                </select>
+                <label for="CANAL_DE_ORIGEM">Canal de origem</label>
+                <select name="CANAL_DE_ORIGEM" id="CANAL_DE_ORIGEM">
+                    <option value="" disabled selected>Selecione um canal</option>
+                    <option value="Indicação">Indicação</option>
+                    <option value="Instagram">Instagram</option>
+                    <option value="Facebook">Facebook</option>
+                    <option value="Outdoor">Outdoor</option>
+                    <option value="Shopping Aracaju">Shopping Aracaju</option>
+                    <option value="Sistema de indicações">Sistema de indicações</option>
+                    <option value="Site/Google">Site/Google</option>
+                    <option value="TikTok">TikTok</option>
+                    <option value="Youtube">Youtube</option>
+                    <option value="Não identificado">Não identificado</option>
+                </select>
+                <label for="SEXO">Sexo</label>
+                <select name="SEXO" id="SEXO">
+                    <option value="" disabled selected>Selecione uma opção</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Feminino">Feminino</option>
+                </select>
+                <label for="LOCAL_DE_NASCIMENTO">Local de Nascimento</label>
+                <input name="LOCAL_DE_NASCIMENTO" id="LOCAL_DE_NASCIMENTO">
+                <label for="OBSERVACAO">Observação</label>
+                <textarea id="OBSERVACAO" name="OBSERVACAO" rows="5" cols="50"></textarea>
+            </div>
+            <div id="buttonsSideForm">
+                <a onclick="cancelSideFormModal('manterDadosNoForm')">Cancelar</a>
+                <button onclick="atualizarCliente()">Enviar</button>
+            </div>
+        </form>
+    </section>
+    <button class="addButton" onclick="openVendaProdutoModal()">+</button>
+    <script src="pages/recepcao/scripts/general.js"></script>
+    <script src="pages/recepcao/scripts/cliente_page.js"></script>
+    <script src="pages/recepcao/scripts/vendas_modal.js"></script>
+    <script src="pages/recepcao/scripts/vendido_modal.js"></script>
+</body>
+</html>

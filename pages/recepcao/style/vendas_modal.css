@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.wal {
+    display: none;
+}
+
+#vendasModalBox {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed; 
+    top: 0; 
+    right: 0; 
+    width: 100vw;
+    height: 100vh; 
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 9999; /* Garante que o modal esteja acima de tudo */
+}
+
+#vendasModal {
+    display: flex;
+    padding: 20px;
+    width: 1000px;
+    flex-direction: column;
+    background-color: var(--secundary-light);
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px;
+    cursor: pointer;
+}
+
+#topOfModal {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+#topOfModal > div {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#generalInfo  {
+    width: 100%;
+    margin-top: 36px;
+    padding: 10px 10px;
+    background-color: var(--primary-light);
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#salesInfo {
+    padding: 10px;
+    height: 250px;
+    background-color: var(--primary-light);
+    display: flex;
+    gap: 14px;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#pagamentosInfo {
+    padding: 10px;
+    height: 250px;
+    background-color: var(--primary-light);
+    gap: 14px;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#generalInfo > div , 
+#salesInfo > div ,
+#pagamentosInfo > div {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+#generalInfo > div > input , 
+#generalInfo > div > select , 
+#salesInfo > div > input , 
+#salesInfo > div > select ,
+#pagamentosInfo > div > input , 
+#pagamentosInfo > div > select {
+    width: 70%;
+    padding: 5px;
+}
+
+#generalInfo > div > label , 
+#salesInfo > div > label ,
+#pagamentosInfo > div > label {
+    text-align: center;
+    width: 30%;
+}
+
+#salesInfo > div > p {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-top: 14px;
+}
+
+#salesInfo > div > button,
+#pagamentosInfo > div > button {
+    width: 200px;
+}
+
+#moneyInfo {
+    flex-grow: 1;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-around;
+    gap: 5px;
+}
+
+#moneyInfo > div {
+    width: 25%;
+    border: 1px solid var(--primary-dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 5px;
+}
+
+#moneyInfo > div > p {
+    text-align: center;
+}
+
+#moneyInfo > div > p > span {
+    color: var(--primary-dark);
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+#navInterno > ul {
+    display: flex;
+    border-radius: 22px 22px 0 0;
+    list-style: none;
+}
+
+#navInterno > ul > li:first-child > button {
+    background-color: var(--primary-light);
+}
+
+#navInterno > ul > li:last-child > button {
+    background-color: var(--secundary-light);
+}
+
+#navInterno li {
+    width: 50%;
+}
+
+#navInterno button {
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+    border: none;
+    background-color: var(--primary-light);
+    font-weight: bold;
+}
+
+.pagamentos {
+    display: none;
+}
+
+#shoppingCart , 
+#pagamentos {
+    width: 100%; /* Largura máxima do container */
+    height: 200px; /* Altura máxima do container */
+    overflow-y: auto; /* Adiciona scroll vertical quando a tabela excede a altura */
+    position: relative; /* Necessário para o posicionamento absoluto do thead */
+    border: 1px solid var(--primary-dark);
+    background-color: white;
+}
+
+table {
+    width: 100%;
+    table-layout: auto; /* Define a largura das colunas com base no conteúdo */
+    border-collapse: collapse; /* Colapsa as bordas das células */
+}
+
+th, td {
+    padding: 5px;
+    text-align: center;
+}
+
+thead {
+    position: sticky; /* Torna o cabeçalho fixo */
+    top: 0; /* Coloca o cabeçalho no topo */
+    background-color: var(--secundary-light); /* Cor de fundo para cobrir a rolagem */
+    z-index: 1; /* Garante que o cabeçalho esteja acima do conteúdo rolado */
+    background-color: var(--primary-dark);
+    color: aliceblue;
+}
+
+tbody {
+    max-height: 150px; /* Altura máxima da tabela */
+    overflow-y: auto; /* Adiciona scroll vertical quando o conteúdo excede a altura */
+}
+
+#actionButtons {
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+#actionButtons > button {
+    width: 100px;
+}
+
+#actionButtons > button:last-child {
+    background-color: var(--primary-light);
+    border: var(--primary-dark) 1px solid;
+    color: var(--primary-dark);
+}
+
+#bottomOfModal {
+    display: flex;
+    justify-content: space-between;
+}
+
+#bottomOfModal > div:first-child{
+    margin: 10px;
+}
+
+#vendidoEm{
+    padding: 5px;
+    width: 100px;
+    border-radius: 5px;
+    background-color: white;
+    margin-left: 5px;
+}

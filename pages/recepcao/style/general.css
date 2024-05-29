@@ -1,0 +1,272 @@
+:root {
+    --primary-dark: #0D0D0D;
+    --primary-light: #C4C7B6;
+    --secundary-color: #DFC8B6;
+    --secundary-light: #ECE5DF;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+    list-style: none;
+}
+
+body {
+    background-color: var(--secundary-light);
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button {
+    padding: 10px;
+    cursor: pointer;
+}
+
+header {
+    display: flex;
+    height: 70px;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--primary-dark);
+}
+
+#logo {
+    width: 130px;
+    margin-left: 20px;
+}
+
+header > nav a {
+    position: relative; /* Necessary for positioning the pseudo-element */
+    color: white;
+}
+
+header > nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px; /* Adjust this to place the underline as desired */
+    width: 0;
+    height: 1px;
+    background-color: white;
+    transition: width 500ms; /* Adjust the duration as desired */
+}
+
+header > nav a:hover::after {
+    width: 100%;
+}
+
+header > nav > ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 10px;
+    align-items: center;
+}
+
+.admin {
+    display: none;
+}
+
+#mobileNav {
+    display: none;
+}
+
+#menuIcon {
+    display: none;
+    width: 30px;
+    margin-right: 20px;
+}
+
+#mobileLista {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    #desktopNav {
+        display: none;
+    }
+
+    #menuIcon {
+        display: block;
+    }
+
+    #mobileNav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        justify-content: end;
+        align-items: end;
+        position: fixed;
+        top: 0; 
+        right: 0; 
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 9999;
+    }
+
+    #mobileLista {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 20px;
+        background-color: var(--primary-dark);
+        padding: 2%;
+        height: calc(100vh - 40px);
+        overflow: scroll;
+        position: fixed; 
+        top: 0; 
+        right: 0;
+        width: 50vw;
+        height: 100vh;
+        max-width: 600px;
+        min-width: 300px;
+    }
+
+    #mobileLista > div > li {
+        padding: 10px;
+    }
+
+    #mobileLista > div > li:hover {
+        border-radius: 10px;
+        background-color: var(--secundary-light);
+    }
+}
+
+
+#pageTitle {
+    display: flex;
+    padding: 20px;
+    width: 100%;
+    color: var(--primary-dark);
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    gap: 20px;
+}
+
+.addButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1;
+    font-size: 2.4em;
+    font-weight: bold;
+    background-color: var(--primary-dark);
+    color: var(--secundary-color);
+    box-shadow: black 0px 0px 6px -1px;
+    transition: transform 500ms;
+}
+
+.addButton:hover {
+    transform: scale(1.2);
+    transition: 500ms;
+}
+
+#settingsDiv{
+    display: none;
+    align-items: center;
+}
+
+#settingsIcon{
+    width: 60px;
+    height: 60px;
+    padding: 15px;
+    filter: invert(1) opacity(0.9);
+    transition: transform 1s;
+    margin-left: -20px;
+}
+
+#settingsIcon:hover {
+    transform: rotate(180deg);
+}
+
+#settingsOptions {
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    display: none;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: black 0px 0px 10px -2px;
+    min-width: 200px;
+    z-index: 9999;
+}
+
+#settingsOptions > div{
+    width: 100%;
+    height: 30px;
+}
+
+#settingsOptions > div > a {
+    color: black;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    padding-left: 10px;
+}
+
+#settingsOptions > div > a:hover {
+    background-color: var(--secundary-light);
+}
+
+.usuarioLogado {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    background-color: var(--secundary-light);
+    padding: 2px 2px 2px 20px;
+    border-radius: 30px;
+    align-items: center;
+}
+
+.usuarioLogado > button {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    border: none;
+    border-radius: 5px 20px 20px 5px;
+    background-color: var(--secundary-color);
+    transition: background-color 500ms;
+}
+
+.usuarioLogado > button:hover {
+    background-color: rgb(192, 116, 116);
+}
+
+.usuarioLogado > button > img {
+    width: 40px;
+    padding: 10px;
+}
+
+#buttonVerMais {
+    width: 200px;
+    border-radius: 10px;
+    margin: 20px auto;
+    background-color: var(--primary-light);
+    display: flex;
+    justify-content: center;
+    border: none;
+    box-shadow: var(--primary-dark) 0px 0px 6px -2px;
+    transition: transform 500ms;
+}
+
+#buttonVerMais:hover {
+    transform: scale(1.05);
+}

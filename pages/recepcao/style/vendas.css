@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import "general.css";
+
+#vendasList {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0px auto 30px auto;
+}
+
+#vendasList > ul > li > a > div {
+    padding: 10px;
+    border: 1px solid rgb(214, 214, 214);
+    display: flex;
+    justify-content: space-between;
+    color: black;
+    background-color: white;
+}
+
+#listaVendas {
+    display:flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#listaVendas > a {
+    display: flex;
+    margin: 0 10px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 3px;
+    transition: transform 500ms;
+}
+
+#listaVendas > a:hover {
+    transform: scale(1.02);
+}
+
+#listaVendas > a > li {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 16px;
+    box-shadow: black 0px 0px 6px -2px;
+}
+
+#listaVendas > a > li > div {
+    margin: 0;
+    color: black;
+    height: 60px;
+    border-radius: 5px 16px 16px 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#listaVendas > a > li > div:first-child {
+    width: 8px;
+}
+
+#listaVendas > a > li > div:last-child {
+    width: 100%;
+    background-color: white;
+    padding: 10px;
+}
+
+#listaVendas > a > li > div:last-child > div:last-child {
+    text-align: end;
+}
+
+.secundaryP {
+    color: grey;
+    font-size: 0.9em;
+    margin-top: 4px;
+    font-weight: 400;
+}
+
+#dataInicial {
+    padding: 5px;
+    border-radius: 5px;
+    margin-left: 5px;
+    text-align: center;
+    border: var(--primary-dark) 1px solid;
+}

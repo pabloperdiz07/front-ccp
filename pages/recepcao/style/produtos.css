@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import "general.css";
+@import "side_form_modal.css";
+
+
+#produtosList {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0px auto;
+}
+
+#produtosList > ul > li > a > div {
+    padding: 10px;
+    border: 1px solid rgb(214, 184, 184);
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 10px 5px 10px;
+    color: black;
+    background-color: white;
+    box-shadow: black 0px 0px 6px -2px;
+    transition: transform 500ms;
+}
+
+#produtosList > ul > li > a > div:hover {
+    transform: scale(1.02);
+}

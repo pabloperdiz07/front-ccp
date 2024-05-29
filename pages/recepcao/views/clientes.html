@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/pages/recepcao/style/clientes.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clientes</title>
+</head>
+<body>
+    <header>
+        <a href="/">
+            <img id="logo" src="/assets/images/LogomarcaBranca.png" alt="Logo-ccp">
+        </a>
+        <nav>
+            <ul id="desktopNav">
+                <li><a href="/clientes">Clientes</a></li>
+                <li><a href="/vendas">Vendas</a></li>
+                <li>
+                    <div class="usuarioLogado">
+                        <p class="nomeLogado"></p>
+                        <button id="logout" onclick="logout()"><img src="/assets/images/logout-icon.svg" alt=""></button>
+                    </div>
+                </li>
+                <li>
+                    <div class="admin" id="settingsDiv">
+                        <img id="settingsIcon" src="/assets/images/settings.png" alt="settingsIcon">
+                        <div id="settingsOptions">
+                            <div><a href="/produtos">Produtos</a></div>
+                            <div><a href="/vendedores">Vendedores</a></div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <img onclick="openMenuMobile()" id="menuIcon" src="/assets/images/menu.svg" alt="menu-icon">
+            <div id="mobileNav">
+                <ul id="mobileLista">
+                    <div>
+                        <li><a href="/clientes">Clientes</a></li>
+                        <li><a href="/vendas">Vendas</a></li>
+                        <li><a class="admin" href="/produtos">Produtos</a></li>
+                        <li><a class="admin" href="/vendedores">Vendedores</a></li>
+                    </div>
+                    <div class="usuarioLogado">
+                        <p class="nomeLogado"></p>
+                        <button id="logout" onclick="logout()"><img src="/assets/images/logout-icon.svg" alt=""></button>
+                    </div>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="pageTitle">
+            <h1>Clientes</h1>
+            <input id="search_clientes" onchange="procurarCliente(value)" type="text" placeholder="Buscar cliente ...">
+        </section>
+        <section id="clientList">
+            <ul id="clientes-list">
+                <!-- Preenchido via JS -->
+            </ul>
+            <button id="buttonVerMais" onclick="verMaisClientes()">Ver mais</button>
+        </section>
+    </main>
+    <!-- Formulário de cadastro de clientes -->
+    <section id="sideFormModal">
+        <form method="post" action="/api/cadastro/cliente" id="SideForm">
+            <div id="inputsSideForm">
+                <label for="CPF">CPF</label>
+                <input name="CPF" id="CPF">
+                <label for="NOME">Nome</label>
+                <input name="NOME" id="NOME">
+                <label for="CIDADE_DE_ATENDIMENTO">Cidade de atendimento</label>
+                <select name="CIDADE_DE_ATENDIMENTO" id="CIDADE_DE_ATENDIMENTO">
+                    <option value="" disabled selected>Selecione uma cidade</option>
+                    <option style="display: none;" id="salvador" value="salvador">Salvador</option>
+                    <option style="display: none;" id="aracaju" value="aracaju">Aracaju</option>
+                </select>
+                <label for="CANAL_DE_ORIGEM">Canal de origem</label>
+                <select name="CANAL_DE_ORIGEM" id="CANAL_DE_ORIGEM">
+                    <option value="" disabled selected>Selecione um canal</option>
+                    <option value="Indicação">Indicação</option>
+                    <option value="Instagram">Instagram</option>
+                    <option value="Facebook">Facebook</option>
+                    <option value="Outdoor">Outdoor</option>
+                    <option value="Shopping Aracaju">Shopping Aracaju</option>
+                    <option value="Sistema de indicações">Sistema de indicações</option>
+                    <option value="Site/Google">Site/Google</option>
+                    <option value="TikTok">TikTok</option>
+                    <option value="Youtube">Youtube</option>
+                    <option value="Não identificado">Não identificado</option>
+                </select>
+                <label for="SEXO">Sexo</label>
+                <select name="SEXO" id="SEXO">
+                    <option value="" disabled selected>Selecione uma opção</option>
+                    <option value="masculino">Masculino</option>
+                    <option value="feminino">Feminino</option>
+                </select>
+                <label for="LOCAL_DE_NASCIMENTO">Local de Nascimento</label>
+                <input name="LOCAL_DE_NASCIMENTO" id="LOCAL_DE_NASCIMENTO">
+                <label for="OBSERVACAO">Observação</label>
+                <textarea id="OBSERVACAO" name="OBSERVACAO" rows="5" cols="50"></textarea>
+            </div>
+            <div id="buttonsSideForm">
+                <a onclick="cancelSideFormModal()">Cancelar</a>
+                <button type="submit">Enviar</button>
+            </div>
+        </form>
+    </section>
+    <button class="addButton" onclick="openSideFormModal()">+</button>
+    <script src="pages/recepcao/scripts/general.js"></script>
+    <script src="pages/recepcao/scripts/clientes.js"></script>
+</body>
+</html>
