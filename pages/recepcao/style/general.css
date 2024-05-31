@@ -87,9 +87,6 @@ header > nav > ul {
     margin-right: 20px;
 }
 
-#mobileLista {
-    display: none;
-}
 
 @media (max-width: 600px) {
     #desktopNav {
@@ -133,13 +130,20 @@ header > nav > ul {
         min-width: 300px;
     }
 
-    #mobileLista > div > li {
+    #mobileLista a {
         padding: 10px;
+        width: 100%;
+        display: flex;
     }
 
-    #mobileLista > div > li:hover {
+    #mobileLista a:hover {
         border-radius: 10px;
         background-color: var(--secundary-light);
+        color: var(--primary-dark);
+    }
+    
+    header > nav a:hover::after {
+        width: 0;
     }
 }
 

@@ -37,10 +37,10 @@
             <div id="mobileNav">
                 <ul id="mobileLista">
                     <div>
-                        <li><a href="/clientes">Clientes</a></li>
-                        <li><a href="/vendas">Vendas</a></li>
-                        <li><a class="admin" href="/produtos">Produtos</a></li>
-                        <li><a class="admin" href="/vendedores">Vendedores</a></li>
+                        <a href="/clientes"><li>Clientes</li></a>
+                        <a href="/vendas"><li>Vendas</li></a>
+                        <a class="admin" href="/produtos"><li>Produtos</li></a>
+                        <a class="admin" href="/vendedores"><li>Vendedores</li></a>
                     </div>
                     <div class="usuarioLogado">
                         <p class="nomeLogado"></p>
@@ -83,6 +83,43 @@
     <div id="vendasModalBox">
         <div id="vendasModal">
             <section id="topOfModal">
+                <div>
+                    <div id="generalInfo">
+                        <div >
+                            <label for="dataVenda">Data da venda</label>
+                            <input id="dataVenda" type="date">
+                        </div>
+                        <div >
+                            <label for="paciente">Paciente</label>
+                            <input class="paciente" type="text" disabled>
+                        </div>
+                        <div >
+                            <label for="empresa">Empresa</label>
+                            <select id="empresa" name="empresa" onchange="empresaEscolhida()">
+                                <option value="CPO">CPO</option>
+                                <option value="WAL">WAL</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="moneyInfo">
+                        <div>
+                            <p>Bruto:</p>
+                            <p>R$ <span id="valorBruto">0.00</span></p>
+                        </div>
+                        <div>
+                            <p>Desconto:</p>
+                            <p>R$ <span id="valorDesconto">0.00</span></p>
+                        </div>
+                        <div>
+                            <p>líquido:</p>
+                            <p>R$ <span id="valorLiquido">0.00</span></p>
+                        </div>
+                        <div>
+                            <p>Pago:</p>
+                            <p>R$ <span id="totalPago">0.00</span></p>
+                        </div>
+                    </div>
+                </div>
                 <div>
                     <section id="navInterno">
                         <ul>
@@ -167,43 +204,6 @@
                         </div>
                         <div>
                             <button onclick="lancarPagamento()">Add pagamento</button>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div id="generalInfo">
-                        <div >
-                            <label for="dataVenda">Data da venda</label>
-                            <input id="dataVenda" type="date">
-                        </div>
-                        <div >
-                            <label for="paciente">Paciente</label>
-                            <input class="paciente" type="text" disabled>
-                        </div>
-                        <div >
-                            <label for="empresa">Empresa</label>
-                            <select id="empresa" name="empresa" onchange="empresaEscolhida()">
-                                <option value="CPO">CPO</option>
-                                <option value="WAL">WAL</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div id="moneyInfo">
-                        <div>
-                            <p>Bruto:</p>
-                            <p>R$ <span id="valorBruto">0.00</span></p>
-                        </div>
-                        <div>
-                            <p>Desconto:</p>
-                            <p>R$ <span id="valorDesconto">0.00</span></p>
-                        </div>
-                        <div>
-                            <p>líquido:</p>
-                            <p>R$ <span id="valorLiquido">0.00</span></p>
-                        </div>
-                        <div>
-                            <p>Pago:</p>
-                            <p>R$ <span id="totalPago">0.00</span></p>
                         </div>
                     </div>
                 </div>
