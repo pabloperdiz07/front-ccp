@@ -39,6 +39,7 @@ async function logout() {
 
 function openMenuMobile() {
     document.getElementById('mobileNav').style.display = 'flex';
+    document.body.classList.add('modal-open');
 }
 
 function openSettingsOptions() {
@@ -55,6 +56,7 @@ function openSideFormModal(tipo = ""){
     }
     const modal = document.getElementById("sideFormModal");
     modal.style.display = "flex";
+    document.body.classList.add('modal-open');
 }
 
 function cancelSideFormModal(action){
@@ -73,4 +75,5 @@ function cancelSideFormModal(action){
             }
         });
     }
+    document.body.classList.remove('modal-open');
 }

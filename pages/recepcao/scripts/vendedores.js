@@ -72,6 +72,7 @@ function openModalEditVendedor(id) {
                 }
             });
             openSideFormModal();
+            document.body.classList.add('modal-open');
         })
         .catch(error => console("Erro ao tentar pegar as informações do vendedor: ", error));
 }

@@ -67,11 +67,13 @@ async function getSalesByClientId(id) {
 function openModalPacienteById(){
     const modal = document.getElementById("modalUpdatePaciente");
     modal.style.display = "flex";
+    document.body.classList.add('modal-open');
 }
 
 function cancelarModalPacientePorId(){
     const modal = document.getElementById("modalUpdatePaciente");
     modal.style.display = "none";
+    document.body.classList.remove('modal-open');
 }
 
 async function deletePacienteById() {

@@ -64,6 +64,7 @@ function povoarFormFields() {
 function openModalProduto(){
     const modal = document.getElementById("produtosModal");
     modal.style.display = "flex";
+    document.body.classList.add('modal-open');
 }
 
 function cancelarModalProdutos(){
@@ -75,6 +76,7 @@ function cancelarModalProdutos(){
     inputForm.forEach(input => input.value = "")
     const buttonSubmitForm = document.getElementById("buttonSubmitForm");
     buttonSubmitForm.onclick = novoProduto;
+    document.body.classList.remove('modal-open');
 }
 
 function openModalEditProduto(id) {

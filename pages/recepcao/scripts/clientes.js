@@ -58,11 +58,13 @@ async function verMaisClientes() {
 function novoClienteModal(){
     const modal = document.getElementById("cadastroModal");
     modal.style.display = "flex";
+    document.body.classList.add('modal-open');
 }
 
 function cancelarModalCliente(){
     const modal = document.getElementById("cadastroModal");
     modal.style.display = "none";
+    document.body.classList.remove('modal-open');
 }
 
 async function procurarCliente(value){
