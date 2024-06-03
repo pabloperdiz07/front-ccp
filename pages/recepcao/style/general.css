@@ -17,9 +17,15 @@ body {
     background-color: var(--secundary-light);
 }
 
+body.modal-open {
+    overflow: hidden;
+}
+
 main {
     max-width: 1200px;
+    padding-top: 10px;
     margin: 0 auto;
+    margin-top: 70px;
 }
 
 a {
@@ -35,6 +41,10 @@ button {
 header {
     display: flex;
     height: 70px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
     align-items: center;
     justify-content: space-between;
     background-color: var(--primary-dark);
@@ -46,7 +56,7 @@ header {
 }
 
 header > nav a {
-    position: relative; /* Necessary for positioning the pseudo-element */
+    position: relative;
     color: white;
 }
 
@@ -54,16 +64,16 @@ header > nav a::after {
     content: '';
     position: absolute;
     left: 0;
-    bottom: -2px; /* Adjust this to place the underline as desired */
+    bottom: -2px; 
     width: 0;
     height: 1px;
     background-color: white;
-    transition: width 500ms; /* Adjust the duration as desired */
+    transition: width 500ms;
 }
 
 header > nav a:hover::after {
     width: 100%;
-}
+} 
 
 header > nav > ul {
     display: flex;

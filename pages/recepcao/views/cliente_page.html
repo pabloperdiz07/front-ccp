@@ -86,15 +86,15 @@
                 <div>
                     <div id="generalInfo">
                         <div >
-                            <label for="dataVenda">Data da venda</label>
+                            <label for="dataVenda">Data da venda:</label>
                             <input id="dataVenda" type="date">
                         </div>
                         <div >
-                            <label for="paciente">Paciente</label>
+                            <label for="paciente">Paciente:</label>
                             <input class="paciente" type="text" disabled>
                         </div>
                         <div >
-                            <label for="empresa">Empresa</label>
+                            <label for="empresa">Empresa:</label>
                             <select id="empresa" name="empresa" onchange="empresaEscolhida()">
                                 <option value="CPO">CPO</option>
                                 <option value="WAL">WAL</option>
@@ -111,7 +111,7 @@
                             <p>R$ <span id="valorDesconto">0.00</span></p>
                         </div>
                         <div>
-                            <p>líquido:</p>
+                            <p>Líquido:</p>
                             <p>R$ <span id="valorLiquido">0.00</span></p>
                         </div>
                         <div>
@@ -137,33 +137,33 @@
                     </section>
                     <div id="salesInfo" class="sales">
                         <div>
-                            <label for="vendedor">Vendedor</label>
+                            <label for="vendedor">Vendedor:</label>
                             <select id="vendedor" name="vendedor">
                                 <option value="Clínica" disabled selected>Selecione um vendedor</option>
                             </select>
                         </div>
                         <div>
-                            <label for="Produto">Produto</label>
+                            <label for="Produto">Produto:</label>
                             <select id="produto" name="produto" onchange="calcularTotalProduto()">
                                 <option value="0" disabled selected>Selecione um produto</option>
                             </select>
                         </div>
                         <div>
-                            <label for="quantidade">Quantidade</label>
+                            <label for="quantidade">Quantidade:</label>
                             <input id="quantidade" type="number" min="1" value="1" onchange="calcularTotalProduto()">
                         </div>
                         <div>
-                            <label for="desconto">Desconto</label>
+                            <label for="desconto">Desconto:</label>
                             <input id="desconto" type="number" min="0" value="0" onchange="calcularTotalProduto()">
                         </div>
                         <div>
-                            <p>Total: R$ <span id="valorParcial">0.00</span></p>
-                            <button onclick="lancarCarrinho()">Add carrinho</button>
+                            <p>R$ <span id="valorParcial">0.00</span></p>
+                            <button onclick="lancarCarrinho()">Carrinho</button>
                         </div>
                     </div>
                     <div id="pagamentosInfo" class="pagamentos">
                         <div>
-                            <label for="formaPagamento">Forma</label>
+                            <label for="formaPagamento">Forma:</label>
                             <select id="formaPagamento" name="formaPagamento">
                                 <option value="" disabled selected>Selecione a forma de pagamento</option>
                                 <option value="PIX">PIX</option>
@@ -176,7 +176,7 @@
                             </select>
                         </div>
                         <div>
-                            <label for="parcelamento">Parcelamento</label>
+                            <label for="parcelamento">Parcelamento:</label>
                             <select id="parcelamento" name="parcelamento">
                                 <option value="" disabled selected>Selecione o parcelamento</option>
                                 <option value="À vista">À vista</option>
@@ -195,15 +195,15 @@
                             </select>
                         </div>
                         <div>
-                            <label for="valorPago">Valor pago</label>
+                            <label for="valorPago">Valor pago:</label>
                             <input id="valorPago" type="text">
                         </div>
                         <div>
-                            <label for="comrovante">Comprovante</label>
+                            <label for="comrovante">Comprovante:</label>
                             <input id="comrovante" type="file">
                         </div>
                         <div>
-                            <button onclick="lancarPagamento()">Add pagamento</button>
+                            <button onclick="lancarPagamento()">Pagamento</button>
                         </div>
                     </div>
                 </div>

@@ -9,6 +9,7 @@ async function openVendidoModal(id){
     await new Promise(resolve => setTimeout(resolve, 1000));
     carregamentoModalVendido.style.display = "none";
     detalhamentoVendido.style.display = "flex";
+    document.body.classList.add('modal-open');
 }
 
 function closeModalVendido(){
@@ -30,6 +31,7 @@ function closeModalVendido(){
 
     document.getElementById("tbComprasVendido").innerHTML = ""
     document.getElementById("tbPagamentosVendido").innerHTML = ""
+    document.body.classList.remove('modal-open');
 }
 
 function openPagamentos(){

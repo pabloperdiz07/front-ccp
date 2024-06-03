@@ -48,7 +48,8 @@ function carregarProdutos(){
 
 function openVendaProdutoModal(){
     const vendasModal = document.getElementById("vendasModalBox");
-    vendasModal.style.display = "flex";
+    vendasModal.style.display = "block";
+    document.body.classList.add('modal-open');
 }
 
 function closeVendaProdutoModal(){
@@ -76,6 +77,7 @@ function closeVendaProdutoModal(){
     buttonVenda.style.backgroundColor = "var(--primary-light)";
     buttonVenda.style.color = "var(--primary-dark)";
     document.getElementById("empresa").disabled = false;
+    document.body.classList.remove('modal-open');
 }
 
 //posso melhoras as duas próximas funções transformando-as em apenas uma
@@ -91,7 +93,9 @@ function openVendasForm(){
     vendasForm[0].style.display = "flex";
     vendasForm[1].style.display = "block";
     buttonVendas.style.backgroundColor = "var(--primary-light)";
-    buttonPagamentos.style.backgroundColor = "var(--secundary-light)";
+    buttonVendas.style.color = "var(--primary-dark)";
+    buttonPagamentos.style.backgroundColor = "var(--primary-dark)";
+    buttonPagamentos.style.color = "var(--primary-light)";
 }
 
 function openPagamentosForm(){
@@ -105,7 +109,9 @@ function openPagamentosForm(){
     pagamentosForm[0].style.display = "flex";
     pagamentosForm[1].style.display = "block";
     buttonPagamentos.style.backgroundColor = "var(--primary-light)";
-    buttonVendas.style.backgroundColor = "var(--secundary-light)";
+    buttonPagamentos.style.color = "var(--primary-dark)";
+    buttonVendas.style.backgroundColor = "var(--primary-dark)";
+    buttonVendas.style.color = "var(--primary-light)";
 }
 
 // fim da segunda função que pode ser melhorada;
@@ -184,7 +190,7 @@ function lancarCarrinho() {
                 <td id="valorbtn${produtoSelecionado.id}">${valorParcial.toFixed(2)}</td>
                 <td>${vendedorSelecionado.value}</td>
                 <td style="display:none;">${vendedorSelecionado.id}</td>
-                <td><button id="btn${produtoSelecionado.id}" value="${valorParcial.toFixed(2)}" onclick="deletarItem(id,value)">Del</button></td>
+                <td><a id="btn${produtoSelecionado.id}" value="${valorParcial.toFixed(2)}" onclick="deletarItem(id,value)"><img class="deleteIcon" src="../../../assets/images/delete.svg"></a></td>
             </tr>`;
             carrinho.innerHTML += venda;
         
@@ -245,7 +251,7 @@ function lancarPagamento() {
             <td>${parcelamentoSelecionado.text}</td>
             <td>${valorPago.toFixed(2)}</td>
             <td>-</td>
-            <td><button id="${formaSelecionada.text}${parcelamentoSelecionado.text}${valorPago}" value="${valorPago.toFixed(2)}" onclick="deletarPagamento(id,value)">Del</button></td>
+            <td><a id="${formaSelecionada.text}${parcelamentoSelecionado.text}${valorPago}" value="${valorPago.toFixed(2)}" onclick="deletarPagamento(id,value)"><img class="deleteIcon" src="../../../assets/images/delete.svg"></a></td>
             </tr>`;
             pagamentos.innerHTML += pagamento;
             

@@ -1,29 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 #backgroundModalDetalhamentoVendido {
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
-    position: fixed; 
+    position: fixed;
     top: 0; 
     right: 0; 
     width: 100vw;
-    height: 100vh; 
+    height: 100vh;
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 9999; /* Garante que o modal esteja acima de tudo */
+    padding: 10px;
 }
 
 #boxModalDetalhamentoVendido {
     position: relative;
     display: flex;
-    padding: 20px;
-    width: 1000px;
+    margin: 100px auto;
+    padding: 2%;
+    width: 100%;
+    max-width: 1000px;
     flex-direction: column;
     background-color: var(--secundary-light);
     border-radius: 5px;
-    justify-content: center;
-    align-items: center;
-    min-height: 500px;
 }
 
 #closeButton {
@@ -49,7 +49,7 @@
 
 #generalInfoVendido {
     display: flex;
-    gap: 20px;
+    gap: 2%;
 }
 
 #generalInfoVendido > section {
@@ -153,4 +153,49 @@ thead {
 tbody {
     max-height: 150px; /* Altura máxima da tabela */
     overflow-y: auto; /* Adiciona scroll vertical quando o conteúdo excede a altura */
+}
+
+@media screen and (max-width: 820px) {
+    #backgroundModalDetalhamentoVendido {
+        padding: 0px;
+        font-size: 1.1em;
+        align-items: center;
+        overflow-y: scroll;
+    }
+    
+    #boxModalDetalhamentoVendido {
+        padding: 20px 4%;
+        display: flex;
+        margin: auto;
+        width: 100%;
+        height: fit-content;
+        min-height: 100vh;
+        border-radius: 0%;
+        overflow-y: scroll;
+    }
+
+    #closeButton {
+        position: fixed;
+        top: 5px;
+        right: 5px;
+        border-radius: 5px;
+        z-index: 5;
+    }
+
+    #detalhamentoVendido > div {
+        flex-wrap: wrap;
+    }
+
+    #detalhamentoVendido > div > section {
+        width: 100%;
+    }
+
+    #moneyInfoVendido {
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+    }
+
+    #moneyInfoVendido > div {
+        width: 48%;
+    }
 }
